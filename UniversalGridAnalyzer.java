@@ -27,11 +27,12 @@ public class UniversalGridAnalyzer {
             case 7: subgridProcessing(grid); break;
             case 8: boundaryDiagonal(grid); break;
             case 9: validation(grid); break;
-            case 0: System.out.println("Exiting...");
+            case 0: System.out.println("Exiting..."); break;
             default: System.out.println("Invalid choice");
           }
     
        } while (choice != 0);
+       }
 
        public static int[][] createGrid() {
            System.out.print("Enter rows (>=6): ");
@@ -65,8 +66,8 @@ public static void displayGrid(int[][] grid) {
 
 // Step 4: Row and Column Sums
 public static void rowColumnSums(int[][] grid) {
-    int rowSums = new int[grid.length];
-    int colSums = new int[grid[0], length];
+    int[] rowSums = new int[grid.length];
+    int[] colSums = new int[grid[0]. length];
 
     for (int i = 0; i < grid.length; i++) {
         for (int j = 0; j < grid[0].length; j++) {
@@ -114,12 +115,12 @@ public static void maxMin(int[][] grid) {
 public static void frequencyCheck(int[][] grid) {
     
     System.out.print("Enter value to count: ");
-    int valuue = input.nextInt();
+    int value = input.nextInt();
 
     System.out.print("Enter threshold: ");
     int threshold = input.nextInt();
 
-    int countvALUE = 0, countGreater = 0;
+    int countValue = 0, countGreater = 0;
 
     for (int[] row : grid) {
         for (int val : row) {
@@ -127,7 +128,7 @@ public static void frequencyCheck(int[][] grid) {
             if (val > threshold) countGreater++;
         }
     }
-    System.out.println("Occurences of " + value + ": " + countValue);
+    System.out.println("Occurrences of " + value + ": " + countValue);
     System.out.println("Values > " + threshold + ": " + countGreater);
 }
 
@@ -136,7 +137,7 @@ public static void patternDetection(int[][] grid) {
 
     boolean found = false;
 
-    for (int i + 0; i < grid.length; i++) {
+    for (int i = 0; i < grid.length; i++) {
         boolean increasing = true;
 
         for (int j = 0; i < grid[0].length - 1; j++) {
@@ -203,7 +204,8 @@ public static void reverseColumn(int[][] grid) {
     int bottom = grid.length - 1;
 
     while (top < bottom) {
-        int temp = girid[two][c];
+        int temp = grid[top][c];
+        grid[top][c] = grid[bottom][c];
         grid[bottom][c] = temp;
 
         top++;
@@ -237,6 +239,9 @@ public static void subgridProcessing(int[][] grid) {
     System.out.print("Row start: ");
     int r1 = input.nextInt();
 
+    System.out.print("Row end: ");
+    int r2 = input.nextInt();
+
     System.out.print("Col start: ");
     int c1 = input.nextInt();
 
@@ -246,7 +251,7 @@ public static void subgridProcessing(int[][] grid) {
     int sum = 0;
     int max = grid[r1][c1];
 
-    for (int i = r1; i <= c2; j++) {
+    for (int i = r1; i <= r2; i++) {
         for (int j = c1; j <= c2; j++) {
 
             sum += grid[i][j];
@@ -316,7 +321,7 @@ public static void displayMenu() {
     System.out.println("2. Row and Column Sums");
     System.out.println("3. Maximum and Minimum");
     System.out.println("4. Frequency Check");
-    System.out.println("Pattern Detection");
+    System.out.println("5. Pattern Detection");
     System.out.println("6. Grid Transformation");
     System.out.println("7. Subgrid Processing");
     System.out.println("8. Boundary and Diagonals");
