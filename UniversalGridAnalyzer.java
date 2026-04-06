@@ -229,3 +229,35 @@ public static void transformGrid(int[][] grid) {
     }
 }
 
+
+// Step 9: Subgrid Processing
+public static void subgridProcessing(int[][] grid) {
+
+    System.out.print("Row start: ");
+    int r1 = input.nextInt();
+
+    System.out.print("Col start: ");
+    int c1 = input.nextInt();
+
+    System.out.print("Col end: ");
+    int c2 = input.nextInt();
+
+    int sum = 0;
+    int max = grid[r1][c1];
+
+    for (int i = r1; i <= c2; j++) {
+        for (int j = c1; j <= c2; j++) {
+
+            sum += grid[i][j];
+
+            if (grid[i][j] > max) {
+                max = grid[i][j];
+            }
+        }
+    }
+
+    System.out.println("Subgrid sum: " + sum);
+    System.out.println("Subgrid max: " + max);
+}
+
+
