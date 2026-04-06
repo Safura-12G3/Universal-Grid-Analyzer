@@ -261,3 +261,30 @@ public static void subgridProcessing(int[][] grid) {
 }
 
 
+// Step 10: Boundary and Diagonals
+public static void boundaryDiagonal(int[][] grid) {
+
+    System.out.println("Boundary:");
+    
+    for (int i = 0; i < grid.length; i++) {
+        for (int j = 0; j < grid[0].length; j++) {
+
+            if (i == 0 || i == grid.length - 1 || j == 0 || j == grid[0].length - 1) {
+                System.out.print(grid[i][j] + " ");
+            } else {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+    }
+    System.out.println("Main Diagonals:");
+    for (int i = 0; i < grid.length; i++) {
+        System.out.print(grid[i][i] + " ");
+    }
+
+    System.out.println("\nSecondary diagonal:");
+    for (int i = 0; i < grid.length; i++) {
+        System.out.print(grid[i][grid.length - 1 - i] + " ");
+    }
+}
+
