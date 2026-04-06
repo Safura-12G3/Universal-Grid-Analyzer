@@ -1,4 +1,13 @@
 
+/* Universal Grid Analyzer
+Student: Safura Saif
+Class: 12G3 - F3
+
+Description:
+A Java program that analyzes any 2D grid using a varity of algorithms.
+Implements row/ column sums, max/min, frequency checks, pattern detection,
+transformation, subgrid processing, boundary and diagonal analysis, and validation. */
+
 // Step 1: Basic Structure (Main Class) 
 import java.util.Scanner;
 
@@ -6,7 +15,11 @@ public class UniversalGridAnalyzer {
 
     static Scanner input = new Scanner(System.in);
 
+
 // Step 2: Create Grid
+/* Purpose: When the code is executed, this will prompt 3 inputs for rows,
+columns, and values. */
+
     public static void main(String[] args) {
 
        int[] [] grid = createGrid();
@@ -29,6 +42,8 @@ public class UniversalGridAnalyzer {
             case 9: validation(grid); break;
             case 0: System.out.println("Exiting..."); break;
             default: System.out.println("Invalid choice");
+
+            // Purpose of Case 0: Exit - Ends the program.
           }
     
        } while (choice != 0);
@@ -40,6 +55,12 @@ public class UniversalGridAnalyzer {
 
            System.out.print("Enter cols (>=6): ");
            int cols = input.nextInt();
+
+           while (rows < 6 || cols < 6) {
+            System.out.println("Grid must be at least 6x6. Re-enter:");
+            rows = input.nextInt();
+            cols = input.nextInt();
+           }
 
            int[][] grid = new int[rows][cols];
 
@@ -54,7 +75,9 @@ public class UniversalGridAnalyzer {
            return grid;
         }
         
+
 // Step 3: Display Grid
+// Purpose: Prints the entire 2D grid row by row
 public static void displayGrid(int[][] grid) {
     for (int[] row : grid) {
         for (int val : row) {
@@ -64,7 +87,10 @@ public static void displayGrid(int[][] grid) {
     }
 }
 
+
 // Step 4: Row and Column Sums
+// Calculates the sum of each row and each column.
+// Identifies the row with the highest sum and the column with the lowest sum.
 public static void rowColumnSums(int[][] grid) {
     int[] rowSums = new int[grid.length];
     int[] colSums = new int[grid[0]. length];
@@ -81,9 +107,33 @@ public static void rowColumnSums(int[][] grid) {
     
     System.out.println("\nColumn sums:");
     for (int sum : colSums) System.out.print(sum + " ");
+
+    // Find row with highest sum
+    int maxRowSum = rowSums[0];
+    int maxRowIndex = 0;
+    for (int i = 1; i < rowSums.length; i++) {
+        if (rowSums[i] > maxRowSum) {
+            maxRowSum = rowSums[i];
+            maxRowIndex = i;
+        }
+    }
+    System.out.println("\nRow with the highest sum: " + maxRowIndex + " (Sum: " + maxRowSum + ")");
+
+    // Find the column with the lowest sum
+    int minColSum = colSums[0];
+    int minColIndex = 0;
+    for (int j = 0; j < colSums.length; j++) {
+        if (colSums[j] < minColSum) {
+            minColSum = colSums[j];
+            minColIndex = j;
+        }
+    }
+    System.out.println("Column with the lowest sum: " + minColIndex + " (Sum: " + minColSum + ")");
 }
 
+
 // Step 5: Maximum and Minimum + Position
+// Finds the maximum and minimum values in the grid and their positions.
 public static void maxMin(int[][] grid) {
     int max = grid[0][0], min = grid[0][0];
     int maxRow = 0, maxCol = 0;
@@ -111,7 +161,9 @@ public static void maxMin(int[][] grid) {
 
 }
 
+
 // Step 6: Frequency Check
+// Purpose: Counts occurrences of a specific value and values above a threshold.
 public static void frequencyCheck(int[][] grid) {
     
     System.out.print("Enter value to count: ");
@@ -132,7 +184,9 @@ public static void frequencyCheck(int[][] grid) {
     System.out.println("Values > " + threshold + ": " + countGreater);
 }
 
+
 // Step 7: Pattern Detection
+// Purpose: Checks for any row that is strictly increasing.
 public static void patternDetection(int[][] grid) {
 
     boolean found = false;
@@ -158,7 +212,9 @@ public static void patternDetection(int[][] grid) {
     }
 }
 
+
 // Step 8: Grid Transformation
+// Purpose: Provides options to either rotate a row, swap two rows, or reverse a column based on users choice.
 // (1/3) Rotate Row Right
 public static void rotateRow(int[][] grid) {
 
@@ -234,6 +290,7 @@ public static void transformGrid(int[][] grid) {
 
 
 // Step 9: Subgrid Processing
+// Purpose: Calculates the sum and maximum of a subgrid selected by the user.
 public static void subgridProcessing(int[][] grid) {
 
     System.out.print("Row start: ");
@@ -268,6 +325,7 @@ public static void subgridProcessing(int[][] grid) {
 
 
 // Step 10: Boundary and Diagonals
+// Purpose: Prints the boundary elements, main diagonal, and secondary diagonal.
 public static void boundaryDiagonal(int[][] grid) {
 
     System.out.println("Boundary:");
@@ -296,6 +354,7 @@ public static void boundaryDiagonal(int[][] grid) {
 
 
 // Step 11: Validation
+// Purpose: Checks if any row contains duplicates and prints true or false.
 public static void validation(int[][] grid) {
 
     boolean hasDuplicates = false;
@@ -328,6 +387,8 @@ public static void displayMenu() {
     System.out.println("9. Validation");
     System.out.println("0. Exit");
 }
+
+
 }
 
 /* In order to run the code, paste the following into the terminal one by one.
