@@ -61,4 +61,23 @@ public static void displayGrid(int[][] grid) {
         System.out.println();
     }
 }
+
+// Step 4: Row and Column Sums
+public static void rowColumnSums(int[][] grid) {
+    int rowSums = new int[grid.length];
+    int colSums = new int[grid[0], length];
+
+    for (int i = 0; i < grid.length; i++) {
+        for (int j = 0; j < grid[0].length; j++) {
+            rowSums[i] += grid[i] [j];
+            colSums[j] += grid[i] [j];
+        }
+    }
+
+    System.out.println("Row sums:");
+    for (int sum : rowSums) System.out.print(sum + " ");
+    
+    System.out.println("\nColumn sums:");
+    for (int sum : colSums) System.out.print(sum + " ");
+}
 }
