@@ -80,4 +80,53 @@ public static void rowColumnSums(int[][] grid) {
     System.out.println("\nColumn sums:");
     for (int sum : colSums) System.out.print(sum + " ");
 }
+
+// Step 5: Maximum and Minimum + Position
+public static void maxMin(int[][] grid) {
+    int max = grid[0][0], min = grid[0][0];
+    int maxRow = 0, maxCol = 0;
+    int minRow = 0, minCol = 0;
+
+    for (int i = 0; i < grid.length; i++) {
+        for (int j = 0; j < grid[0].length; j++) {
+
+            if (grid[i][j] > max) {
+                max = grid[i][j];
+                maxRow = i;
+                maxCol = j;
+            }
+
+            if (grid[i][j] < min) {
+                min = grid[i][j];
+                minRow = i;
+                minCol = j;
+            }
+        }
+    } 
+
+    System.out.println("Max: " + max + " at (" + maxRow + "," + maxCol + ")");
+    System.out.println("Min: " + min + " at (" + minRow + "," + minCol + ")");
+
+}
+
+// Step 6: Frequency Check
+public static void frequencyCheck(int[][] grid) {
+    
+    System.out.print("Enter value to count: ");
+    int valuue = input.nextInt();
+
+    System.out.print("Enter threshold: ");
+    int threshold = input.nextInt();
+
+    int countvALUE = 0, countGreater = 0;
+
+    for (int[] row : grid) {
+        for (int val : row) {
+            if (val == value) countValue++;
+            if (val > threshold) countGreater++;
+        }
+    }
+    System.out.println("Occurences of " + value + ": " + countValue);
+    System.out.println("Values > " + threshold + ": " + countGreater);
+}
 }
