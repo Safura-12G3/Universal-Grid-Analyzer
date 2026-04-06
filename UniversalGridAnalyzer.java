@@ -288,3 +288,25 @@ public static void boundaryDiagonal(int[][] grid) {
     }
 }
 
+
+// Step 11: Validation
+public static void validation(int[][] grid) {
+
+    boolean hasDuplicates = false;
+
+    for (int i = 0; i < grid.length; i++) {
+
+        for (int j = 0; j < grid[0].length; j++) {
+            for (int k = j + 1; k < grid[0].length; k++) {
+
+                if (grid[i][j] == grid[i][k]) {
+                    hasDuplicates = true;
+                }
+            }
+        }
+    }
+
+    System.out.println("Any row has duplicates: " + hasDuplicates);
+}
+
+}
