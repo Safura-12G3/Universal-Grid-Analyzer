@@ -30,7 +30,7 @@ public class UniversalGridAnalyzer {
             case 0: System.out.println("Exiting...");
             default: System.out.println("Invalid choice");
           }
-
+    
        } while (choice != 0);
 
        public static int[][] createGrid() {
@@ -52,7 +52,8 @@ public class UniversalGridAnalyzer {
 
            return grid;
         }
-        // Step 3: Display Grid
+        
+// Step 3: Display Grid
 public static void displayGrid(int[][] grid) {
     for (int[] row : grid) {
         for (int val : row) {
@@ -309,4 +310,16 @@ public static void validation(int[][] grid) {
     System.out.println("Any row has duplicates: " + hasDuplicates);
 }
 
+// Method for Menu Display
+public static void displayMenu() {
+    System.out.println("\n1. Display Grid");
+    System.out.println("2. Row and Column Sums");
+    System.out.println("3. Maximum and Minimum");
+    System.out.println("4. Frequency Check");
+    System.out.println("Pattern Detection");
+    System.out.println("6. Grid Transformation");
+    System.out.println("7. Subgrid Processing");
+    System.out.println("8. Boundary and Diagonals");
+    System.out.println("9. Validation");
+    System.out.println("0. Exit");
 }
