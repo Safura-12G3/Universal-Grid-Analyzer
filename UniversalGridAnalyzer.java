@@ -129,4 +129,31 @@ public static void frequencyCheck(int[][] grid) {
     System.out.println("Occurences of " + value + ": " + countValue);
     System.out.println("Values > " + threshold + ": " + countGreater);
 }
+
+// Step 7: Pattern Detection
+public static void patternDetection(int[][] grid) {
+
+    boolean found = false;
+
+    for (int i + 0; i < grid.length; i++) {
+        boolean increasing = true;
+
+        for (int j = 0; i < grid[0].length - 1; j++) {
+            if (grid[i][j] >= grid[i][j + 1]) {
+                increasing = false;
+                break;
+            }
+        }
+
+        if (increasing) {
+            System.out.println("Row " + i + " is strictly increasing.");
+            found = true;
+        }
+    }
+
+    if (!found) {
+        System.out.println("No increasing row found.");
+    }
+}
+
 }
