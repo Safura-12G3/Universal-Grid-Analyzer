@@ -140,7 +140,7 @@ public static void patternDetection(int[][] grid) {
     for (int i = 0; i < grid.length; i++) {
         boolean increasing = true;
 
-        for (int j = 0; i < grid[0].length - 1; j++) {
+        for (int j = 0; j < grid[0].length - 1; j++) {
             if (grid[i][j] >= grid[i][j + 1]) {
                 increasing = false;
                 break;
@@ -328,3 +328,12 @@ public static void displayMenu() {
     System.out.println("9. Validation");
     System.out.println("0. Exit");
 }
+}
+
+/* In order to run the code, paste the following into the terminal one by one.
+ cd ~/Desktop/"mini project"
+ls 
+
+javac UniversalGridAnalyzer.java
+java UniversalGridAnalyzer
+*/
