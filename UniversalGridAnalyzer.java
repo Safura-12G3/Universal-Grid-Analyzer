@@ -156,4 +156,76 @@ public static void patternDetection(int[][] grid) {
     }
 }
 
+// Step 8: Grid Transformation
+// (1/3) Rotate Row Right
+public static void rotateRow(int[][] grid) {
+
+    System.out.print("Enter row index: ");
+    int r = input.nextInt();
+
+    int last = grid[r][grid[0].length - 1];
+
+    for (int j = grid[0].length - 1; j > 0; j--) {
+        grid[r][j] = grid[r][j - 1];
+    }
+
+    grid[r][0] = last;
+
+    System.out.println("Row rotated.");
 }
+
+// (2/3) Swap Rows
+public static void swapRows(int[][] grid) {
+
+    System.out.print("Enter first row: ");
+    int r1 = input.nextInt();
+
+    System.out.print("Enter second row: ");
+    int r2 = input.nextInt();
+
+    for (int j = 0; j < grid[0].length; j++) {
+        int temp = grid[r1][j];
+        grid[r1][j] = grid[r2][j];
+        grid[r2][j] = temp;
+    }
+
+    System.out.println("Rows swapped");
+}
+
+// (3/3) Reverse Column
+public static void reverseColumn(int[][] grid) {
+
+    System.out.print("Enter column index: ");
+    int c = input.nextInt();
+
+    int top = 0;
+    int bottom = grid.length - 1;
+
+    while (top < bottom) {
+        int temp = girid[two][c];
+        grid[bottom][c] = temp;
+
+        top++;
+        bottom--;
+    }
+
+    System.out.println("Column reversed.");
+
+}
+
+public static void transformGrid(int[][] grid) {
+
+    System.out.println("1, Rotate Row");
+    System.out.println("2, Swap Rows");
+    System.out.println("3. Reverse Column");
+
+    int choice = input.nextInt();
+
+    switch (choice) {
+        case 1: rotateRow(grid); break;
+        case 2: swapRows(grid); break;
+        case 3: reverseColumn(grid); break;
+        default: System.out.println("Invalid");
+    }
+}
+
