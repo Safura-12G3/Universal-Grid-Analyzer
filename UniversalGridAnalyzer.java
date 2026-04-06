@@ -52,4 +52,13 @@ public class UniversalGridAnalyzer {
 
            return grid;
         }
+        // Step 3: Display Grid
+public static void displayGrid(int[][] grid) {
+    for (int[] row : grid) {
+        for (int val : row) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+    }
+}
 }
